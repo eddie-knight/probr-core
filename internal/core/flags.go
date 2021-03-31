@@ -31,7 +31,6 @@ func binariesPathHandler(v *string) {
 
 // GetCommands ...
 func GetCommands() (cmdSet []*exec.Cmd, err error) {
-	// TODO: make a help function
 	// TODO: give any exec errors a familiar format
 	workDir, err := os.Getwd()
 	if err != nil {
@@ -52,7 +51,7 @@ func GetCommands() (cmdSet []*exec.Cmd, err error) {
 		}
 		cmd := exec.Command(binaryName)
 		cmd.Args = append(cmd.Args, fmt.Sprintf("--varsfile=%s", configPath))
-		cmd.Args = append(cmd.Args, "--tags='@k-gen'")
+		// cmd.Args = append(cmd.Args, "--tags='@k-gen'")
 		cmd.Args = append(cmd.Args, "--loglevel=DEBUG")
 		cmdSet = append(cmdSet, cmd)
 	}

@@ -16,11 +16,12 @@ ServicePacks:
       - NET_RAW
     SystemNamespace: kube-system
     DashboardPodNamePrefix: kubernetes-dashboard
+    # TODO: these exclusions are not being handled in the SP
     Probes: # allows this pack's probes to be disabled by name
       - Name: pod_security_policy
         Excluded: "out"
       - Name: iam
-        Excluded:
+        Excluded: out
       - Name: general
         Excluded:
       - Name: container_registry_access
